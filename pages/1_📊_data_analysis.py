@@ -32,7 +32,7 @@ if st.button("Generate Analysis Page"):
     st.info("Please refresh the page to see the new analysis in the sidebar.")
 
 # List existing generated pages
-generated_dir = Path("pages/generated")
+generated_dir = Path("pages")
 if generated_dir.exists():
     existing_pages = [p.stem for p in generated_dir.glob("*.py")]
     if existing_pages:

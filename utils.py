@@ -101,7 +101,7 @@ def calculate_metrics(df, category=None):
 def generate_analysis_page(category):
     """Generate a new analysis page for the given category"""
     template_path = Path('templates/analysis_template.py')
-    output_dir = Path('pages/generated')
+    output_dir = Path('pages')
     output_path = output_dir / f"{len(os.listdir(output_dir)) + 1}_📊_{category}_analysis.py"
     
     # Create template if it doesn't exist
