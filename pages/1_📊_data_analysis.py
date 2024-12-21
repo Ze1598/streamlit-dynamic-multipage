@@ -35,6 +35,8 @@ if st.button("Generate Analysis Page"):
 generated_dir = Path("pages")
 if generated_dir.exists():
     existing_pages = list(generated_dir.glob("*.py"))
+    # Don't consider the pre-built pages for listing
+    existing_pages = [page for page in existing_pages if page.stem[0] not in ("1", "2")]
     if existing_pages:
         st.subheader("Manage Analysis Pages")
         
@@ -46,7 +48,8 @@ if generated_dir.exists():
             col1, col2, col3 = st.columns([3, 1, 1])
             
             with col1:
-                st.write(f"📊 {page.stem}")
+                # Don't print the numerical index in the file name used internally for ordering pages in the menu
+                st.write(f"📊 {page.stem[2:]}")
             
             with col2:
                 # Extract category from filename
